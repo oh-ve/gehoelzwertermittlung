@@ -27,7 +27,7 @@ Git
 
 ### Installation
 
-#### Klonen des Repositories
+#### Klonen des Repositorys
 
 git clone [URL Ihres Git-Repository]  
 cd [Ihr Projektname]
