@@ -2,13 +2,12 @@ const express = require("express");
 const app = express.Router();
 
 const {
+  createPlant,
   getPlantsByCondition,
   getAllPlants,
   deleteAllPlants,
   deletePlant,
 } = require("../controllers/plantControllers");
-
-const { createPlant } = require("../controllers/createPlant");
 
 const requireAuth = require("../middlewares/requireAuth");
 
