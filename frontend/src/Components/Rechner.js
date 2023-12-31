@@ -57,17 +57,12 @@ export default function Rechner({ user, triggerRefetch }) {
 
   const handleCalculateClick = async () => {
     try {
-      // Retrieve the user object from localStorage
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user?.token;
-
-      // Ensure that you have the token
       if (!token) {
         console.error("No token found, user must be logged in to calculate.");
         return;
       }
-
-      // Include the token in the Authorization header
       const response = await axios.post(url1, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -79,7 +74,6 @@ export default function Rechner({ user, triggerRefetch }) {
       });
     } catch (error) {
       console.error("Fehler bei der Berechnung:", error);
-      // Handle the error appropriately - maybe set an error state and display it
     }
   };
 
