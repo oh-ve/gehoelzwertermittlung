@@ -170,9 +170,9 @@ Anmerkung: Beim Erstellen einer Pflanze wird automatisch der Wert der Pflanze an
 
 ### Abhängigkeiten Frontend
 
-react-router-dom
-axios
-react-icons
+react-router-dom  
+axios  
+react-icons  
 react-jwt
 
 ### Gliederung
