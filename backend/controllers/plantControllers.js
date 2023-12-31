@@ -1,6 +1,22 @@
 const Plant = require("../schemas/Plant");
+const { calculatePlantData } = require("./createPlant");
 
-// Pflanzen nach bestimmten Kriterien aufrufen
+async function createPlant(req, res) {
+  try {
+    const plantData = req.body;
+    const calculatedData = calculatePlantData(plantData);
+    const newPlant = new Plant({
+      ...plantData,
+      ...calculatedData,
+    });
+    const result = await newPlant.save();
+    console.log("Plant created:", result);
+    return res.status(201).json(result);
+  } catch (error) {
+    console.error("Error creating plant:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
 
 async function getPlantsByCondition(condition) {
   try {
@@ -12,8 +28,6 @@ async function getPlantsByCondition(condition) {
     throw error;
   }
 }
-
-// Alle Pflanzen aufrufen
 
 const getAllPlants = async (req, res) => {
   try {
@@ -28,8 +42,6 @@ const getAllPlants = async (req, res) => {
     });
   }
 };
-
-// Eine Pflanze löschen
 
 async function deletePlant(req, res) {
   const plantId = req.params.plantId;
@@ -46,8 +58,6 @@ async function deletePlant(req, res) {
   }
 }
 
-// Alle Pflanzen löschen
-
 async function deleteAllPlants() {
   try {
     const result = await Plant.deleteMany();
@@ -60,6 +70,7 @@ async function deleteAllPlants() {
 }
 
 module.exports = {
+  createPlant,
   getPlantsByCondition,
   getAllPlants,
   deletePlant,
