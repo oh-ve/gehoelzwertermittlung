@@ -1,0 +1,134 @@
+/* Global Element Styles */
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  margin: 10px 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #39933c;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+.dropdown {
+  margin-bottom: 15px;
+}
+
+label select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  color: #333;
+}
+
+label select option {
+  font-size: 16px;
+}
+
+/* Ergebnisse Section Styles */
+.ergebnisse-container {
+  margin: 70px 20px;
+  max-width: 800px;
+  background-color: #fff;
+}
+
+.ergebnisse-container .ergebnisse-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ergebnisse-container .ergebnisse-table th,
+.ergebnisse-container .ergebnisse-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.ergebnisse-container .ergebnisse-table th {
+  background-color: #4caf50;
+  color: white;
+}
+
+.ergebnisse-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Navigation and Login Styles */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Button Styles */
+.delete-button {
+  background-color: transparent;
+  color: black;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  color: #333;
+  background-color: transparent;
+  transform: scale(1.2);
+}
