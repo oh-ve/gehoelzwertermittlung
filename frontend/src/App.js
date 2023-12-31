@@ -1,7 +1,6 @@
 import "./App.css";
 import Rechner from "./Components/Rechner";
-import { useState, useEffect, useCallback } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
 import Ergebnisse from "./Components/Ergebnis";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "./Components/Login";
@@ -13,14 +12,11 @@ function App() {
     JSON.parse(localStorage.getItem("user")) || null
   );
 
-  // Extract the token from the user object, or use an empty string as a fallback
   const token = user?.token || "";
 
-  // Use the useJwt hook with the token
-  const { decodedToken, isExpired } = useJwt(token);
+  const { isExpired } = useJwt(token);
 
   useEffect(() => {
-    // If the token is expired, remove user from localStorage and update state
     if (isExpired) {
       localStorage.removeItem("user");
       setUser(null);
@@ -29,7 +25,6 @@ function App() {
 
   useEffect(() => {
     if (isExpired) {
-      // Handle expired token
       localStorage.removeItem("user");
       setUser(null);
     }
@@ -40,8 +35,6 @@ function App() {
       setUser(JSON.parse(localStorage.getItem("user")));
     }
   }, [user]);
-
-  const [pflanzen, setPflanzen] = useState([]);
 
   const [triggerFetch, setTriggerFetch] = useState(false);
 

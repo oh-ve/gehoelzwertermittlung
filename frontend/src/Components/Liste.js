@@ -83,27 +83,21 @@ export default function Liste({ user, pflanzen, triggerRefetch }) {
     const deleteUrl = `${url1}/del/${plantId}`;
 
     try {
-      // Retrieve the user object from localStorage
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user?.token;
-
-      // Ensure that you have the token
       if (!token) {
         console.error("No token found, user must be logged in to delete.");
         return;
       }
-
-      // Include the token in the Authorization header
       await axios.delete(deleteUrl, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
-      triggerRefetch(); // Trigger refetch to update the list after deletion
+      triggerRefetch();
     } catch (error) {
       console.error("Pflanze konnte nicht gelöscht werden", error);
-      // Handle the error appropriately - maybe set an error state and display it
     }
   };
 

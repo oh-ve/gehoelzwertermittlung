@@ -21,6 +21,21 @@ button:hover {
   background-color: #39933c;
 }
 
+.delete-button {
+  background-color: transparent;
+  color: black;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  color: #333;
+  background-color: transparent;
+  transform: scale(1.2);
+}
+
 /* Form Styles */
 form {
   display: flex;
@@ -115,20 +130,4 @@ label select option {
 .login-error {
   color: red;
   margin-top: 10px;
-}
-
-/* Button Styles */
-.delete-button {
-  background-color: transparent;
-  color: black;
-  font-size: 1.2em;
-  margin: 0;
-  padding: 0 5px;
-  cursor: pointer;
-}
-
-.delete-button:hover {
-  color: #333;
-  background-color: transparent;
-  transform: scale(1.2);
 }
