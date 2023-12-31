@@ -131,6 +131,8 @@ Basierend auf dem bereitgestellten Code und den Informationen zur Gehölzwerterm
 
 #### 8. **Pflanze erstellen**
 
+Anmerkung: Beim Erstellen einer Pflanze wird automatisch der Wert der Pflanze anhand der eingegebenen Parameter berechnet. Die eigentliche Berechnungslogik ist allerdings in einer eigenen Datei gespeichert, die in .gitignore enthalten ist, um vertraulich zu bleiben. Damit ein neuer Eintrag erstellt werden kann, muss zuerst vom Nutzer eine Datei createPlant.js im Ordner controllers angelegt werden, die eine eigene Berechnungsformel enthält.
+
     Endpunkt: POST /pflanzen/
 
     Beispiel-Anfrage:
