@@ -20,43 +20,43 @@ Datenverwaltung: Die Anwendung ermöglicht es den Benutzern, Daten einzusehen, h
 
 Folgende Tools müssen installiert sein, um die Anwendung einzurichten:
 
-Node.js
-npm (wird mit Node.js installiert)
-MongoDB
+Node.js  
+npm (wird mit Node.js installiert)  
+MongoDB  
 Git
 
 ### Installation
 
 #### Klonen des Repositories
 
-git clone [URL Ihres Git-Repository]
+git clone [URL Ihres Git-Repository]  
 cd [Ihr Projektname]
 
 #### Backend-Server einrichten
 
 Ins Backend-Verzeichnis navigieren und die [benötigten Abhängigkeiten](#abhängigkeiten-backend) installieren. Anschließend Server mit npm run dev starten:
 
-cd backend
-npm install
+cd backend  
+npm install  
 npm run dev
 
 #### Frontend-App einrichten
 
 In einem neuen Terminalfenster ins Frontend-Verzeichnis navigieren, [Abhängigkeiten](#abhängigkeiten-frontend) installieren und Server mit npm start starten:
 
-cd frontend
-npm install
+cd frontend  
+npm install  
 npm start
 
 ## Backend
 
 ### Abhängigkeiten Backend
 
-Express
-Mongoose
-CORS
-dotenv
-bcrypt
+Express  
+Mongoose  
+CORS  
+dotenv  
+bcrypt  
 jsonwebtoken
 
 ### Umgebungsvariablen
