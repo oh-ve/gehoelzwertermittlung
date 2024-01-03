@@ -195,7 +195,7 @@ Liste.js: Diese Komponente umfasst alle bisher eingegebenen Daten. Sie kann nach
 
 Für das Datenmanagement und die Kommunikation mit dem Backend wird Axios verwendet. Axios ermöglicht es, asynchron Daten von der Backend-API abzurufen, zu senden und zu verarbeiten. Dies umfasst sowohl die Authentifizierung der Benutzer als auch die Abfrage und Übermittlung von Pflanzendaten.
 
-# Plant Valuation App
+# 🌳 Plant Valuation App
 
 ##### English
 
