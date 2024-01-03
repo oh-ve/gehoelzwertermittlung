@@ -1,5 +1,9 @@
 # Gehölzwertermittlungs-App
 
+##### Deutsch
+
+[English below](#english)
+
 ## Überblick
 
 Die Gehölzwertermittlungs-App ist eine Webanwendung, die entwickelt wurde, um den Wert von Gehölz auf Basis verschiedener eingegebener Parameter zu berechnen. Das Frontend der Anwendung wurde mit React.js erstellt, während das Backend auf Express.js und MongoDB setzt.
@@ -75,7 +79,7 @@ MONGODB_URI=ihre_mongodb_uri
 SECRET=ihr_sehr_starkes_geheimnis
 ```
 
-Die `.env`-Datei ist in `.gitignore` enthalten, um sie vor unbeabsichtigter Veröffentlichung zu schützen.
+Die `.env`-Datei ist in `.gitignore` enthalten, um sie vor unbeabsichtigter Veröffentlichung zu schützen. Eine `sample.env`-Datei wurde hinzugefügt, in die der Benutzer seine Variablen eintragen und die Datei anschließend in `.env` umbenennen kann.
 
 ### API-Endpunkte
 
@@ -190,3 +194,204 @@ Liste.js: Diese Komponente umfasst alle bisher eingegebenen Daten. Sie kann nach
 ### Datenverwaltung
 
 Für das Datenmanagement und die Kommunikation mit dem Backend wird Axios verwendet. Axios ermöglicht es, asynchron Daten von der Backend-API abzurufen, zu senden und zu verarbeiten. Dies umfasst sowohl die Authentifizierung der Benutzer als auch die Abfrage und Übermittlung von Pflanzendaten.
+
+# Plant Valuation App
+
+##### English
+
+[Back to German](#deutsch)
+
+## Overview
+
+The Plant Valuation App is a web application developed to calculate the value of plants based on various entered parameters. The frontend of the application was created with React.js, while the backend relies on Express.js and MongoDB.
+
+### Main Features of the Application
+
+Authentication: The application requires user login to access the main features. This ensures that access to the calculation functions and results is secure and controlled.
+
+Calculation of Plant Values: Users can enter specific details about plants, after which the application calculates their value. The exact formula and method for calculating plant value remain confidential in the interest of the client.
+
+Display of Results: After entering the data and performing the calculation, the results are displayed. Users can view the detailed results of their queries here.
+
+Data Management: The application allows users to view, add, and delete data. This provides flexible handling of the information stored in the application.
+
+## Setup
+
+### Prerequisites
+
+The following tools must be installed to set up the application:
+
+Node.js  
+npm (installed with Node.js)  
+MongoDB  
+Git
+
+### Installation
+
+#### Cloning the Repository
+
+```
+git clone [URL of your Git repository]
+cd [Your project name]
+```
+
+#### Setting Up Backend Server
+
+Navigate to the backend directory and install the [required dependencies](#backend-dependencies). Then start the server with npm run dev:
+
+```
+cd backend
+npm install
+npm run dev
+```
+
+#### Setting Up Frontend App
+
+In a new terminal window, navigate to the frontend directory, install [dependencies](#frontend-dependencies), and start the server with npm start:
+
+```
+cd frontend
+npm install
+npm start
+```
+
+## Backend
+
+### Backend Dependencies
+
+Express  
+Mongoose  
+CORS  
+dotenv  
+bcrypt  
+jsonwebtoken
+
+### Environment Variables
+
+In addition to the connection URI for the MongoDB database, the application requires a `SECRET` for authentication via JSON Web Tokens (JWT). This secret is used to sign and verify the tokens. It's important to keep this value secure and confidential.
+
+For local development, a `.env` file must be created in the root directory of the backend project, and the following environment variables defined:
+
+- `MONGODB_URI`: MongoDB connection URI.
+- `SECRET`: A strong, random secret for JWT authentication.
+
+An example of the `.env` file structure could look like this:
+
+```
+MONGODB_URI=your_mongodb_uri
+SECRET=your_very_strong_secret
+```
+
+The `.env` file is included in `.gitignore` to protect it from accidental publication. A sample.env has been added where the user can insert their variables and rename the file to .env.
+
+### API Endpoints
+
+#### 1. **User Login**
+
+    Endpoint: POST /user/login
+
+    Example Request:
+
+    ```json
+    {
+      "username": "username",
+      "password": "password"
+    }
+    ```
+
+#### 2. **User Registration**
+
+    Endpoint: POST /user/signup
+
+    Example Request:
+
+    ```json
+    {
+      "username": "username",
+      "password": "password"
+    }
+    ```
+
+#### 3. **Retrieve All Users**
+
+    Endpoint: GET /user/users
+
+#### 4. **Retrieve Single User**
+
+    Endpoint: GET /user/:id
+    URL Parameter: 'id': The user ID.
+
+#### 5. **Delete All Users**
+
+    Endpoint: DELETE /user/delete
+
+#### 6. **Delete Single User**
+
+    Endpoint: DELETE /user/:id
+    URL Parameter: 'id': The user ID.
+
+#### 7. **Retrieve All Plants**
+
+    Endpoint: GET /plants/
+
+#### 8. **Create Plant**
+
+Note: When creating a plant, the value of the plant is automatically calculated based on the entered parameters. However, the actual calculation logic is stored in a separate file included in .gitignore to remain confidential. To create a new entry, users must first create a file createPlant.js in the controllers folder containing their own calculation formula.
+
+    Endpoint: POST /plants/
+
+    Example Request:
+
+    ```json
+    {
+            "pflanzenart": "Apple tree", //Type of plant
+            "anschaffungskosten": 35, // Purchase cost
+            "hoehe": 200, // Height of plant
+            "pflegekostenProJahr": 3.15, // Maintenance cost per year
+            "pflegejahre": 5, // Maintenance years
+            "alter": 7, //Age
+            "engstand": 0, //Crowding
+            "schaeden": 5, //Damage
+            "pflegemaengel": 5, //Maintenance defiency
+            "anschaffungshoehe": 100, //Purchase height
+            "pflanzung": 2, //Planting
+            "risiko": 0, //Risk
+            "lebenserwartung": 80, //Life expectancy
+            "funktionserfuellung": 4 //Years until function fulfillment
+
+    }
+    ```
+
+#### 9. **Delete All Plants**
+
+    Endpoint: DELETE /plants/
+
+#### 10. **Delete Single Plant**
+
+     Endpoint: DELETE /plants/del/:plantId
+     URL Parameter: 'plantId': The plant ID.
+
+## Frontend
+
+### Frontend Dependencies
+
+react-router-dom  
+axios  
+react-icons  
+react-jwt
+
+### Structure
+
+App.js: As the central component, App.js defines the basic structure of the application and manages navigation between different pages using react-router-dom. This component controls the display of different views and components based on the current navigation context.
+
+Login.js: The Login component allows users to authenticate to access the application.
+
+Calculator.js: This component is the heart of the app and allows users to enter various parameters to calculate the value of trees. It offers a user-friendly form to capture the required data.
+
+Results.js: After calculation, the results are displayed in this component. It presents the calculated values clearly in a table.
+
+List.js: This component includes all previously entered data. It can be filtered by plant type and sorted by all parameters. Entries can be deleted individually if necessary.
+
+### Data Management
+
+Axios is used for data management and communication with the backend. Axios allows asynchronously retrieving, sending, and processing data from the backend API. This includes both the authentication of users and the querying and transmission of plant data.
