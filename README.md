@@ -1,4 +1,4 @@
-# Gehölzwertermittlungs-App
+# 🌳 Gehölzwertermittlungs-App
 
 ##### Deutsch
 
